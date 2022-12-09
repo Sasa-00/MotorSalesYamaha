@@ -1,0 +1,62 @@
+.about-gradient{
+    background-image: linear-gradient(rgb(255, 255, 255), rgb(0, 0, 0));
+}
+
+.about-container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    align-items: center;
+}
+
+.about-title {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    color: rgb(39, 39, 39);
+}
+
+.about-card{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 50px;
+    max-width: 1500px;
+    border: 6px solid rgb(61, 61, 61);
+}
+
+.about-card-div{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(32, 32, 42);
+}
+
+.about-card-img {
+    max-width: 700px;
+    min-width: 500px;
+}
+
+.about-card-year {
+    text-align: center;
+    margin: 20px;
+    background-color: rgb(251, 57, 57);
+    color: whitesmoke;
+}
+
+.about-card-title{
+    text-align: center;
+    padding: 20px;
+    color: whitesmoke;
+}
+
+.about-card-p {
+    line-height: 1.5em;
+    margin-left: 30px;
+    color: whitesmoke;
+}
+
+.about-last{
+    color: whitesmoke;
+    margin: 50px 0;
+    font-family: 'Trocchi', serif;
+    letter-spacing: .15rem;
+}
