@@ -8,6 +8,7 @@
     padding-top: 50px;
     width: 50%;
     height: 600px;
+    /* Resize the background image to cover the entire container */
 }
 
 .map {
@@ -17,6 +18,11 @@
     height: 100%;
     border-radius: 20px;
     border: 2px solid black;
+    background-image: url("./../Assets/loading.png");
+    background-color: #f9f9f9;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .contact-input{
