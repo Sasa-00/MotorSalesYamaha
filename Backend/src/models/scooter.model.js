@@ -1,26 +1,13 @@
-// Motorcycle-model.js - A mongoose model
+// Scooter-model.js - A mongoose model
 // 
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
 module.exports = function (app) {
-  const modelName = 'motorcycle';
+  const modelName = 'scooter';
   const mongooseClient = app.get('mongooseClient');
   const { Schema } = mongooseClient;
   const schema = new Schema({
-    ModelName: { type: String, required: true },
-    Slogan: { type: String },
-    CategoryImg: { type: String },
-    FirstImg: { type: String },
-    Text: { type: String },
-    SecondImg: { type: String },
-    Details: { type: String },
-    ThirdImg: { type: String },
-    CharTitleOne: { type: String },
-    CharTextOne: { type: String },
-    CharTitleTwo: { type: String },
-    CharTextTwo: { type: String },
-    CharTitleThree: { type: String },
-    CharTextThree: { type: String }
+    text: { type: String, required: true }
   }, {
     timestamps: true
   });

@@ -10,7 +10,7 @@ const options = {
 
 const Product = () => {
 
-    const [openModal, setOpenModal] = useState(true)
+    const [openModal, setOpenModal] = useState(false)
 
     const { ref: myRef1, inView: divIsVisible1 } = useInView(options);
     const { ref: myRef2, inView: divIsVisible2 } = useInView(options);
