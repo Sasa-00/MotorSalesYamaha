@@ -9,6 +9,7 @@ import CategoryAtv from "./Pages/CategoryAtv"
 import CategoryScooter from "./Pages/CategoryScooter"
 import CategoryNautical from "./Pages/CategoryNautical"
 import CategoryMotorcycle from "./Pages/CategoryMotorcycle"
+import Product from "./Pages/Product"
 import NotFound from "./Pages/NotFound"
 
 
@@ -20,12 +21,21 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<AboutUs />} />
           <Route path='/contact' element={<Contact />} />
-          <Route path='/category'>
-            <Route index element={<Home />} />
-            <Route path='atv' element={<CategoryAtv />} />
-            <Route path='scooter' element={<CategoryScooter />} />
-            <Route path='nautical' element={<CategoryNautical />} />
-            <Route path='motorcycle' element={<CategoryMotorcycle />} />
+          <Route path='/category/atv'>
+            <Route index element={<CategoryAtv />} />
+            <Route path=':id' element={<Product />} />
+          </Route>
+          <Route path='/category/scooter'>
+            <Route index element={<CategoryScooter />} />
+            <Route path=':id' element={<Product />} />
+          </Route>
+          <Route path='/category/nautical'>
+            <Route index element={<CategoryNautical />} />
+            <Route path=':id' element={<Product />} />
+          </Route>
+          <Route path='/category/motorcycle'>
+            <Route index element={<CategoryMotorcycle />} />
+            <Route path=':id' element={<Product />} />
           </Route>
           <Route path='/*' element={<NotFound />} />
         </Routes>
