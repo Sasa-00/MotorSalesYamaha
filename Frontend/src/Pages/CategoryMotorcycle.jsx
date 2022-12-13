@@ -11,6 +11,7 @@ const CategoryMotorcycle = () => {
   const [data, setData] = useState([])
 
   useEffect(()=>{
+    
     axios.get('http://localhost:3030/motorcycle')
     .then(function (response) {
       setData(response.data.data)
