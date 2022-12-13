@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './../Styles/Contact.css'
-import { useState } from 'react'
 
 
 const Contact = () => {
@@ -12,6 +11,10 @@ const Contact = () => {
     alert(`The name you entered was: ${email}`)
     setEmail("")
   }
+
+  useEffect(()=>{
+    window.scrollTo(0, 0)
+  },[])
 
   return (
     <div className='contact-container'>

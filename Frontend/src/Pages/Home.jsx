@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './../Styles/Home.css'
 import video from './../Assets/hero.mp4'
 import motoImg from './../Assets/home-motor.jpg'
@@ -9,6 +9,11 @@ import { Link } from "react-router-dom"
 import Button from '@mui/material/Button';
 
 const Home = () => {
+
+  useEffect(()=>{
+    window.scrollTo(0, 0)
+  },[])
+
   return (
     <>
     <div className='container'>

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './../Styles/Categories.css'
 import { Link } from "react-router-dom"
-import img from './../Assets/categories/moto/moto.jpg'
 import rlogo from './../Assets/categories/moto/R-World.jpeg'
 import banner from './../Assets/categories/moto/banner.jpeg'
 import axios from 'axios';
@@ -11,7 +10,6 @@ const CategoryMotorcycle = () => {
   const [data, setData] = useState([])
 
   useEffect(()=>{
-    
     axios.get('http://localhost:3030/motorcycle')
     .then(function (response) {
       setData(response.data.data)
@@ -19,9 +17,8 @@ const CategoryMotorcycle = () => {
     .catch(function (error) {
       console.log(error);
     })
-
+    window.scrollTo(0, 0)
   },[])
-
 
   return (
     <>

@@ -14,16 +14,36 @@ const Product = () => {
 
     const [openModal, setOpenModal] = useState(false)
     const [data, setData] = useState({})
+    const [price, setPrice] = useState("")
+
 
     const params = useParams();
 
     useEffect(()=>{
-        axios.get(`http://localhost:3030/motorcycle/${params.id}` )
+        let service = "";
+        if(window.location.href.includes("motorcycle")){
+            service = 'motorcycle'
+            setPrice("https://yamaha-barel.com/wp-content/uploads/2022/09/CENE-2022-MOTO.pdf")
+        }
+        if(window.location.href.includes("atv")){
+            service = 'atv'
+            setPrice("https://yamaha-barel.com/wp-content/uploads/2022/09/ATV-Cenovnik-SRB-MPC-2022-2023.pdf")
+        }
+        if(window.location.href.includes("scooter")){
+            service = 'scooter'
+            setPrice("https://yamaha-barel.com/wp-content/uploads/2022/09/CENE-2022-MOTO.pdf")
+        }
+        if(window.location.href.includes("nautical")){
+            service = 'nautical'
+            setPrice("https://yamaha-barel.com/wp-content/uploads/2022/06/Cenovnik-VNB-01.06.22.pdf")
+        }
+        axios.get(`http://localhost:3030/${service}/${params.id}` )
             .then(response => {
             setData(response.data)
             }).catch(function (error) {
             console.log(error);
             })
+        window.scrollTo(0, 0)
         },[])
 
     const { ref: myRef1, inView: divIsVisible1 } = useInView(options);
@@ -73,7 +93,7 @@ const Product = () => {
             <p className='caracteristic-text'>{data.CharTextThree}</p>
         </div>
         <div className='div-btn'>
-            <a target='_blank' href="https://yamaha-barel.com/wp-content/uploads/2022/09/CENE-2022-MOTO.pdf"><button className='product-btn'>PREUZMI CENOVNIK</button></a>
+            <a target='_blank' href={price}><button className='product-btn'>PREUZMI CENOVNIK</button></a>
             <h2 className='product-emai-btn' onClick={() => setOpenModal(true)}>ZAKAŽI TERMIN</h2>
         </div>
         <Modal open={openModal} onClose={() => setOpenModal(false) } />

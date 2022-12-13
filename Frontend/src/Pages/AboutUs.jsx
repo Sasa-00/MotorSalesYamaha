@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './../Styles/About.css'
 import about1 from './../Assets/about/about1.jpg'
 import about2 from './../Assets/about/about2.jpg'
@@ -13,6 +13,10 @@ import about9 from './../Assets/about/about9.jpg'
 import { useInView } from 'react-intersection-observer'
 
 const AboutUs = () => {
+
+  useEffect(()=>{
+    window.scrollTo(0, 0)
+  },[])
 
   const oprions = {
     threshold: 0.9,
