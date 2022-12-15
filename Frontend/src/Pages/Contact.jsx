@@ -1,15 +1,28 @@
 import React, { useEffect, useState } from 'react'
 import './../Styles/Contact.css'
-
+import axios from 'axios';
+import MuiAlert from '../Components/MuiAlert';
 
 const Contact = () => {
 
   const [email, setEmail] = useState("");
+  const [openResponse, setOpenResponse] = useState(false)
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert(`The name you entered was: ${email}`)
-    setEmail("")
+
+    const article = { email: "miljatovicsasa9@gmail.com", type: "contact", text: email };
+    axios.post('http://localhost:3030/email-sender', article)
+        .then(() => {
+          setEmail("")
+          setOpenResponse(true)
+          setTimeout(() => {
+            setOpenResponse(false);
+          }, 3000);
+        }).catch((err) => {
+          console.log(err)
+          alert('There was some problem with email. Please try after.')
+        })
   }
 
   useEffect(()=>{
@@ -20,6 +33,9 @@ const Contact = () => {
     <div className='contact-container'>
       <div className='contact-input'>
         <h3 className='contact-title'>OVDE NAM PIŠITE</h3>
+        <div className={openResponse ? "alert alert-visible" : "alert"} >
+          <MuiAlert text={'Zakazali ste test vožnju u našem salonu!'} />
+        </div>
         <form className='contact-form' onSubmit={handleSubmit}>
           <textarea className='textArea' rows="8" cols="50" value={email} onChange={(e) => setEmail(e.target.value)} />
           <button className='contact-btn' type="submit">Pošalji</button>

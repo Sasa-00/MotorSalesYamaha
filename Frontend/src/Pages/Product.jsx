@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import Modal from '../Components/Modal';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import MuiAlert from '../Components/MuiAlert';
 
 const options = {
     threshold: 0.5,
@@ -13,6 +14,7 @@ const options = {
 const Product = () => {
 
     const [openModal, setOpenModal] = useState(false)
+    const [openResponse, setOpenResponse] = useState(false)
     const [data, setData] = useState({})
     const [price, setPrice] = useState("")
 
@@ -96,7 +98,10 @@ const Product = () => {
             <a target='_blank' href={price}><button className='product-btn'>PREUZMI CENOVNIK</button></a>
             <h2 className='product-emai-btn' onClick={() => setOpenModal(true)}>ZAKAŽI TERMIN</h2>
         </div>
-        <Modal open={openModal} onClose={() => setOpenModal(false) } />
+        <Modal setOpenResponse={setOpenResponse} open={openModal} onClose={() => setOpenModal(false) } />
+        <div className={openResponse ? "alert alert-visible" : "alert"} >
+        <MuiAlert text={'Zakazali ste test vožnju u našem salonu!'} />
+        </div>
     </div>
   )
 }
