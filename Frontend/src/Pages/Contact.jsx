@@ -34,7 +34,7 @@ const Contact = () => {
       <div className='contact-input'>
         <h3 className='contact-title'>OVDE NAM PIŠITE</h3>
         <div className={openResponse ? "alert alert-visible" : "alert"} >
-          <MuiAlert text={'Zakazali ste test vožnju u našem salonu!'} />
+          <MuiAlert text={'Poruka je uspešno poslata!'} />
         </div>
         <form className='contact-form' onSubmit={handleSubmit}>
           <textarea className='textArea' rows="8" cols="50" value={email} onChange={(e) => setEmail(e.target.value)} />

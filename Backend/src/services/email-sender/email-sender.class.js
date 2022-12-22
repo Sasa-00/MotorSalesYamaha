@@ -17,7 +17,7 @@ exports.EmailSender = class EmailSender {
   }
 
   async create (data, params) {
-    sgMail.setApiKey('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');
+    sgMail.setApiKey('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');
 
     let msg = '';
 
@@ -43,7 +43,10 @@ exports.EmailSender = class EmailSender {
       };
     }
 
-    sgMail.send(msg).then((response) => console.log('Email sent...')).catch((err) => console.log(err));
+    sgMail.send(msg).then((response) => {
+      console.log('Email sent...');
+      console.log(response);
+    }).catch((err) => console.log(err));
 
     return data;
   }

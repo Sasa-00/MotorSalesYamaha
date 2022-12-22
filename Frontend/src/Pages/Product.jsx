@@ -100,7 +100,7 @@ const Product = () => {
         </div>
         <Modal setOpenResponse={setOpenResponse} open={openModal} onClose={() => setOpenModal(false) } />
         <div className={openResponse ? "alert alert-visible" : "alert"} >
-        <MuiAlert text={'Zakazali ste test vožnju u našem salonu!'} />
+        <MuiAlert text={'Uspešno ste zakazali test vožnju u našem salonu!'} />
         </div>
     </div>
   )
